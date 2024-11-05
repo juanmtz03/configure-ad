@@ -37,8 +37,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img width="730" alt="image" src="https://github.com/user-attachments/assets/5d952fde-9cdf-4810-a012-87161c20b880">
 </p>
 <p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
+To set up a domain controller in Azure, first create a resource group, then establish a virtual network and subnet. Deploy a virtual machine (VM) for the domain controller, naming it “DC-1” and using Windows Server 2022 with the login credentials “labuser” and “lab123!”. After creating the VM, set its NIC’s private IP address to static and disable the Windows Firewall for testing. For the client setup, create a second VM, “Client-1,” with Windows 10 and the same credentials, placing it in the same region and virtual network as DC-1. Update Client-1’s DNS settings to match DC-1’s private IP, restart it from the Azure Portal, and then confirm connectivity by pinging DC-1’s IP. Lastly, verify through PowerShell on Client-1 that DC-1’s private IP is set as its DNS server.</p>
 <br />
 <h2>Deploying Active Directory</h2>
 <p>
