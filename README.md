@@ -26,26 +26,25 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Active Directory Architecture Overview</h2>
 
-<p>
-<img width="730" alt="image" src="https://github.com/user-attachments/assets/5169b265-7d96-4e92-b80f-6ef8e6f87d62">
+<p align="center">
+<img width="600" alt="image" src="https://github.com/user-attachments/assets/5169b265-7d96-4e92-b80f-6ef8e6f87d62">
 </p>
 
 <br />
 
 <h2>Preparing AD Infrastructure in Azure</h2>
-<p align="center">
-<img align="center" width="600" alt="image" src="https://github.com/user-attachments/assets/5d952fde-9cdf-4810-a012-87161c20b880">
-</p>
-<p align="center">
-<img  width="600" alt="image" src="https://github.com/user-attachments/assets/be1e09b1-3cf6-44e1-81cd-a1067a99cd2f">
-</p>
-
+<div align="center" style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; width: 100%; max-width: 600px;">
+    <img src="https://github.com/user-attachments/assets/5d952fde-9cdf-4810-a012-87161c20b880" alt="image" style="width: 100%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/be1e09b1-3cf6-44e1-81cd-a1067a99cd2f" alt="image" style="width: 100%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/6805cd05-8ca7-4b09-b508-209b33ed8bbe" alt="image" style="width: 100%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/1c184c13-2f29-4504-8916-d060c4b4e4ad" alt="image" style="width: 100%; height: auto;">
+</div>
 <p>
 To set up a domain controller in Azure, first create a resource group, then establish a virtual network and subnet. Deploy a virtual machine (VM) for the domain controller, naming it “DC-1” and using Windows Server 2022 with the login credentials “labuser” and “lab123!”. After creating the VM, set its NIC’s private IP address to static and disable the Windows Firewall for testing. For the client setup, create a second VM, “Client-1,” with Windows 10 and the same credentials, placing it in the same region and virtual network as DC-1. Update Client-1’s DNS settings to match DC-1’s private IP, restart it from the Azure Portal, and then confirm connectivity by pinging DC-1’s IP. Lastly, verify through PowerShell on Client-1 that DC-1’s private IP is set as its DNS server.
-
-
 </p>
 <br />
+
+
 <h2>Deploying Active Directory</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
