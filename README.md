@@ -70,6 +70,13 @@ Key Steps for Setting up Active Directory in Lab
 <br/>
 
 <h2>Creating Users with PowerShell</h2>
+<div align="center" style="display: grid; grid-template-columns: 4fr 1fr; gap: 5px; width: 80%; max-width: 400px;">
+    <img src="https://github.com/user-attachments/assets/f72d9732-78f1-46c3-bbb4-5b852b28c0b5" alt="image" style="width: 50%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/09f4c10b-129f-40de-b1b0-0fc2e1fb8815" alt="image" style="width: 50%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/4d77ce87-60cd-4722-9b5f-defe261d6f59" alt="image" style="width: 50%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/2b6dd9cc-65bb-4e54-90b4-72801d79c211" alt="image" style="width: 50%; height: auto;">
+    <img src="https://github.com/user-attachments/assets/a4a72b52-e49b-4e71-801d-e1592739cdbc" alt="image" style="width: 50%; height: auto;">
+</div>
 
 <p>
 Setting Up Remote Desktop for Non-Administrative Users on Client-1
