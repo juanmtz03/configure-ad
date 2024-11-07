@@ -47,17 +47,49 @@ To set up a domain controller in Azure, first create a resource group, then esta
 
 <h2>Deploying Active Directory</h2>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+To set up Active Directory, first, log into the primary domain controller (DC-1) and install Active Directory Domain Services. Then, promote DC-1 to a domain controller by creating a new forest (e.g., mydomain.com) and logging back in with the designated domain user. Next, create a Domain Admin user in Active Directory Users and Computers (ADUC). Establish Organizational Units (OUs) for both employees and admins, then create an admin user, “jane_admin,” with assigned permissions. Log in as jane_admin for ongoing administrative tasks. Finally, connect Client-1 to the domain by configuring its DNS settings in Azure, joining it to the domain, and organizing it under a designated “_CLIENTS” OU. When the lab is finished, keep the virtual machines for future work, but turn them off in the Azure Portal to save costs.
 </p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-</p>
-<br />
+
+Key Steps for Setting up Active Directory in Lab
+
+- **Install Active Directory Domain Services**
+  - Log into `DC-1`, install the service, and promote it to a domain controller.
+  - Set up a forest (e.g., `mydomain.com`), then restart.
+
+- **Create Domain Admin User**
+  - In `Active Directory Users and Computers (ADUC)`, create an `_EMPLOYEES` and an `_ADMINS` Organizational Unit (OU).
+  - Create a new user `jane_admin` in the `_ADMINS` OU with the username `jane_admin` and password `Cyberlab123!`.
+  - Add `jane_admin` to the `Domain Admins` Security Group.
+  - Use `jane_admin` as the admin account for all future administrative tasks.
+
+- **Join Client-1 to Domain**
+  - Set `Client-1`’s DNS in Azure to the DC’s private IP address.
+  - Restart `Client-1` and join it to the domain as the local admin `labuser`.
+  - Verify that `Client-1` appears in `ADUC`, then move it to the `_CLIENTS` OU.
+
+<br/>
+
 <h2>Creating Users with PowerShell</h2>
+
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Setting Up Remote Desktop for Non-Administrative Users on Client-1
+
+- **Configure Remote Desktop Access**
+  - Log into `Client-1` as `mydomain.com\jane_admin`.
+  - Open System Properties.
+  - Select “Remote Desktop” and allow access to “domain users.”
+  - You can now log into `Client-1` as a normal, non-administrative user.
+
+Create Additional Users and Test Remote Login
+
+- **Create Additional Users with PowerShell**
+  - Log into `DC-1` as `jane_admin`.
+  - Open `PowerShell_ISE` as an administrator.
+  - Create a new file (send me an email for the code 'juanmtz_3@hot..'), paste the user creation script into it, and run the script.
+  - Observe as the accounts are created.
+
+- **Verify Accounts and Test Login**
+  - Open `Active Directory Users and Computers (ADUC)` and check the `_EMPLOYEES` OU for the new accounts.
+  - Try logging into `Client-1` with one of the new accounts (ensure you know the password set in the script).
 </p>
 <br />
